@@ -1,0 +1,18 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    padding: 0.5rem 1rem;
+    margin: .5rem 0;
+    text-align: center;
+    background-color: #F7B7AB;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth effect */
+    &:hover, &.active{
+        background-color: #18181b;
+        color: #ffffff;
+    }
+}

@@ -1,0 +1,18 @@
+<div class="user-container">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-96 text-center">
+        <header>
+            <h2 class="heading">User Profile Page</h2>
+            <p class="summary">Here user can see their information.</p>
+        </header>
+        <section>
+            <div class="list-section">
+                <user-list (selectedUser)="onSelect($event)" [usersData]="userList" />
+            </div>
+            <div class="detail-section">
+                @if (selectedUserInfo) {
+                    <user-profile [selectedUser]="selectedUserInfo"/>
+                }
+            </div>
+        </section>
+    </div>
+</div>

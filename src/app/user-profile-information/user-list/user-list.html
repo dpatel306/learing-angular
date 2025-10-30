@@ -1,0 +1,5 @@
+<ul>
+    @for (user of usersData; track $index) {
+    <li [class.active]="selectedUserId == user.id" (click)="onSelectUser(user.id)">{{user.name}}</li>
+    }
+</ul>

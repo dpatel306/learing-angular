@@ -1,0 +1,46 @@
+.user-container {
+    display: flex;
+    flex-direction: column;
+    background-color: azure;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    color: black;
+
+    header {
+        .heading {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .summary {
+            text-align: center;
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5px;
+
+        .list-section,
+        .detail-section {
+            padding: 0.5rem;
+        }
+
+        .list-section {
+            flex: 0 0 20%;
+            max-width: 20%;
+            background-color: #fdfdfd;
+            border-radius: 5px;
+        }
+
+        .detail-section {
+            flex: 0 0 80%;
+            max-width: 80%;
+            background-color: #D3E2EB;
+            border-radius: 5px;
+        }
+    }
+}
