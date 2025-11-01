@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 
 @Component({
   selector: 'user-list',
@@ -14,6 +14,11 @@ export class UserList {
     console.log('selected user ',userId);
     this.selectedUserId = userId;
     this.selectedUser.emit(userId);
+  }
+  ngOnInit(){
+    if(!!this.usersData && !!this.usersData[0].id){
+      this.onSelectUser(this.usersData[0].id);
+    }
   }
 
 }

@@ -16,10 +16,10 @@ export interface UserType {
 }
 
 export interface UserTaskType {
-  id: number,
+  id?: number | undefined,
   userId: number,
   title: string,
   description: string,
   status: string,
-  dueDate: string,
+  dueDate: string | null,
 }

@@ -1,0 +1,28 @@
+<p-card class="add-task-box">
+    <form (ngSubmit)="onSubmit()">
+        <div class="input-div">
+            <p-floatlabel>
+                <input pInputText name="title" id="title" [(ngModel)]="task.title" autocomplete="off" />
+                <label for="title">Title</label>
+            </p-floatlabel>
+        </div>
+        <div class="input-div">
+            <p-floatlabel>
+                <textarea rows="5" name="description" id="description" pTextarea [(ngModel)]="task.description"
+                    fluid></textarea>
+                <label for="description">Description</label>
+            </p-floatlabel>
+        </div>
+        <div class="input-div">
+            <p-floatlabel>
+                <p-datepicker name="due_date" id="due_date" dateFormat="yy-mm-dd" [minDate]="minDate"
+                    [(ngModel)]="task.dueDate" [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" />
+                <label for="due_date">Due Date</label>
+            </p-floatlabel>
+        </div>
+        <div class="btn-section">
+            <p-button type="submit" label="Save" />
+            <p-button (click)="onCancel()" label="Cancel" />
+        </div>
+    </form>
+</p-card>

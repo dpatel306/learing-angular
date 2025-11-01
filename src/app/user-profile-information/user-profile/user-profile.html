@@ -14,31 +14,33 @@
         <li>Email : {{selectedUser.email}}</li>
     </ul>
     <p-divider />
-    <p-button label="Add New Task" />
+    <p-button (onClick)="showAddNewTask = true" label="Add New Task" />
+    @if (showAddNewTask) {
+    <p-card header="New Task">
+        <app-add-new-task (cancelled)="cancelAddNewTask()" (submitted)="onFormSubmit($event)"
+            [userId]="selectedUser.id" />
+    </p-card>
+    }
+    @else {
     <p-card header="Tasks">
         @for (task of selectedUserTasks ; track $index) {
         <p-card class="task-box">
-            <div class="status-section">
-                <p-tag class="no-bg" [rounded]="false" [value]="task.status" [severity]="getSeverity(task.status)" />
-            </div>
-            <ng-template #title>{{task.title}}</ng-template>
-            <ng-template #subtitle>Due on {{task.dueDate}}</ng-template>
+            <ng-template #title>
+                <div class="title-section">
+                    <h3>{{task.title}}</h3> <p-tag class="no-bg status-section" [rounded]="false" [value]="task.status"
+                        [severity]="getSeverity(task.status)" />
+                </div>
+            </ng-template>
+            <ng-template #subtitle>Due on {{task.dueDate | date }}</ng-template>
             <ng-template #content>{{task.description}}</ng-template>
             <ng-template #footer>
                 <div class="cta-section">
-                    <button pButton>
-                        <i class="pi pi-check" pButtonIcon></i>
-                        <span pButtonLabel>Save</span>
-                    </button>
+                    <p-menu [id]="task.id?.toString()" #menu [model]="getMenuItems(task.id)" [popup]="true" />
+                    <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v" />
                 </div>
             </ng-template>
         </p-card>
         }
     </p-card>
-    <ng-template #footer>
-        <!-- <div class="flex gap-4 mt-1">
-            <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
-            <p-button label="Save" class="w-full" styleClass="w-full" />
-        </div> -->
-    </ng-template>
+    }
 </p-card>
