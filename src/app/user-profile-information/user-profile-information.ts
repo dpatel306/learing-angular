@@ -16,7 +16,6 @@ export class UserProfileInformation {
   selectedUserInfo?: UserType= this.userList[0];
 
   onSelect(userId: number) {
-    console.log('Selected User in main comoponent in is :', userId);
     this.selectedUserInfo = this.userList.find((user) => user.id === userId);
   }
 }

@@ -4,9 +4,9 @@ import { UserProfileInformation } from './user-profile-information/user-profile-
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,UserProfileInformation],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  standalone:false
 })
 export class App {
   protected readonly title = signal('learing-angular');
